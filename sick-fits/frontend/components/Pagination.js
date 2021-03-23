@@ -6,7 +6,7 @@ import PaginationStyles from './styles/PaginationStyles';
 import DisplayError from './ErrorMessage';
 import { perPage } from '../config';
 
-const PAGINATION_QUERY = gql`
+export const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY {
     _allProductsMeta {
       count
@@ -24,7 +24,8 @@ export default function Pagination({ page }) {
     <PaginationStyles>
       <Head>
         <title>
-          Ryan Allen Gallery, Page {page} of {pageCount}
+          Eatr Artwork - Page {page} of {pageCount}
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </title>
       </Head>
       <Link href={`/products/${page - 1}`}>
