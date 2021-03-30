@@ -55,12 +55,11 @@ export default function Page({ children, cool }) {
     <div>
       <GlobalStyles />
       <Header />
-      <h3>{cool}</h3>
       <InnerStyles>{children}</InnerStyles>
     </div>
   );
 }
-
+// Took out line 58       <h3>{cool}</h3>
 Page.propTypes = {
   cool: PropTypes.string,
   children: PropTypes.any,
