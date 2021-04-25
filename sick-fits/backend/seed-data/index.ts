@@ -1,13 +1,28 @@
 import { products } from './data';
 
-export async function insertSeedData(keystone: any) {
+// export async function insertSeedData(keystone: any) {
+//   console.log(`🌱 Inserting Seed Data: ${products.length} Products`);
+//   const { mongoose } = keystone.adapters.MongooseAdapter;
+//   for (const product of products) {
+//     console.log(`  🛍️ Adding Product: ${product.name}`);
+//     const { _id } = await mongoose
+//     .model('ProductImage')
+//     .create({ image: product.photo, altText: product.description });
+//     product.photo = _id;
+//     await mongoose.model('Product').create(product);
+//   }
+export async function insertSeedData(ks: any) {
+  // Keystone API changed, so we need to check for both versions to get keystone
+  const keystone = ks.keystone || ks;
+  const adapter = keystone.adapters?.MongooseAdapter || keystone.adapter;
+
   console.log(`🌱 Inserting Seed Data: ${products.length} Products`);
-  const { mongoose } = keystone.adapters.MongooseAdapter;
+  const { mongoose } = adapter;
   for (const product of products) {
     console.log(`  🛍️ Adding Product: ${product.name}`);
     const { _id } = await mongoose
-    .model('ProductImage')
-    .create({ image: product.photo, altText: product.description });
+      .model('ProductImage')
+      .create({ image: product.photo, altText: product.description });
     product.photo = _id;
     await mongoose.model('Product').create(product);
   }
