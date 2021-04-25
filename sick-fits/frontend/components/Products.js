@@ -19,7 +19,7 @@ export const ALL_PRODUCTS_QUERY = gql`
       }
     }
   }
-  `;
+`;
 
 const ProductsListStyles = styled.div`
   display: grid;
@@ -35,14 +35,14 @@ export default function Products({ page }) {
     },
   });
   if (loading) return <p>Loading...</p>;
-  if(error) return <p>Error: {error.message}</p>;
+  if (error) return <p>Error: {error.message}</p>;
   return (
     <div>
-        <ProductsListStyles>
+      <ProductsListStyles>
         {data.allProducts.map((product) => (
-        <Product key={product.id} product={product} />
-      ))}
-        </ProductsListStyles>
+          <Product key={product.id} product={product} />
+        ))}
+      </ProductsListStyles>
     </div>
   );
 }

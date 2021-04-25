@@ -55,6 +55,7 @@ export default function Page({ children, cool }) {
     <div>
       <GlobalStyles />
       <Header />
+      <h3>{cool}</h3>
       <InnerStyles>{children}</InnerStyles>
     </div>
   );
