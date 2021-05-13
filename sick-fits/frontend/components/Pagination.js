@@ -24,7 +24,7 @@ export default function Pagination({ page }) {
     <PaginationStyles>
       <Head>
         <title>
-          Eatr Artwork - Page {page} of {pageCount}
+          RADesigns - Page {page} of {pageCount}
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </title>
       </Head>

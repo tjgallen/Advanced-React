@@ -11,7 +11,7 @@ const OrderItemStyles = styled.li`
     margin-bottom: 2rem;
     padding-bottom: 2rem;
   }
-
+  
   .images {
     display: grid;
     grid-gap: 10px;

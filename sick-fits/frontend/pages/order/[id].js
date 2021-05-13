@@ -1,8 +1,8 @@
-import { useQuery } from "@apollo/client";
-import gql from "graphql-tag";
+import { useQuery } from '@apollo/client';
+import gql from 'graphql-tag';
+import Head from 'next/head';
 import ErrorMessage from '../../components/ErrorMessage';
 import OrderStyles from '../../components/styles/OrderStyles';
-import Head from 'next/head';
 import formatMoney from '../../lib/formatMoney';
 
 const SINGLE_ORDER_QUERY = gql`
@@ -29,10 +29,9 @@ const SINGLE_ORDER_QUERY = gql`
     }
   }
 `;
-
 export default function SingleOrderPage({ query }) {
   const { data, error, loading } = useQuery(SINGLE_ORDER_QUERY, {
-    variables: { id: query.id},
+    variables: { id: query.id },
   });
   if (loading) return <p>Loading...</p>;
   if (error) return <ErrorMessage error={error} />;
@@ -40,22 +39,22 @@ export default function SingleOrderPage({ query }) {
   return (
     <OrderStyles>
       <Head>
-        <title>Eatr Artwork - {order.id}</title>
+        <title>RADesign - {order.id}</title>
       </Head>
       <p>
-        <span>Order ID:</span>
+        <span>Order Id:</span>
         <span>{order.id}</span>
       </p>
       <p>
-        <span>Charge ID:</span>
+        <span>Charge:</span>
         <span>{order.charge}</span>
       </p>
       <p>
-        <span> Order Total:</span>
+        <span>Order Total:</span>
         <span>{formatMoney(order.total)}</span>
       </p>
       <p>
-        <span>Item Count:</span>
+        <span>ItemCount:</span>
         <span>{order.items.length}</span>
       </p>
       <div className="items">
@@ -70,8 +69,8 @@ export default function SingleOrderPage({ query }) {
               <p>{item.description}</p>
             </div>
           </div>
-          ))}
-        </div>
+        ))}
+      </div>
     </OrderStyles>
   );
 }

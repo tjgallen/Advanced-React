@@ -1,11 +1,11 @@
-import { useQuery } from "@apollo/client";
-import gql from "graphql-tag";
-import ErrorMessage from '../components/ErrorMessage';
+import { useQuery } from '@apollo/client';
+import gql from 'graphql-tag';
 import Head from 'next/head';
-import formatMoney from '../lib/formatMoney';
-import styled from "styled-components";
-import OrderItemStyles from '../components/styles/OrderItemStyles';
+import styled from 'styled-components';
 import Link from 'next/link';
+import ErrorMessage from '../components/ErrorMessage';
+import formatMoney from '../lib/formatMoney';
+import OrderItemStyles from '../components/styles/OrderItemStyles';
 
 const USER_ORDERS_QUERY = gql`
   query USER_ORDERS_QUERY {
@@ -52,17 +52,14 @@ export default function OrdersPage() {
       <Head>
         <title>Your Orders ({allOrders.length})</title>
       </Head>
-      <h2>You have {allOrders.length} order{allOrders.length === 1 ? '!' : 's!'}</h2>
+      <h2>You have {allOrders.length} orders!</h2>
       <OrderUl>
-        {allOrders.map(order => (
+        {allOrders.map((order) => (
           <OrderItemStyles>
             <Link href={`/order/${order.id}`}>
               <a>
                 <div className="order-meta">
-                  <p>
-                    {countItemsInAnOrder(order)} Item
-                    {order.items.length === 1 ? '' : 's'}
-                    </p>
+                  <p>{countItemsInAnOrder(order)} Items</p>
                   <p>
                     {order.items.length} Product
                     {order.items.length === 1 ? '' : 's'}
@@ -70,12 +67,12 @@ export default function OrdersPage() {
                   <p>{formatMoney(order.total)}</p>
                 </div>
                 <div className="images">
-                  {order.items.map(item => (
-                  <img 
-                  key={`image-${item.id}`}
-                  src={item.photo?.image?.publicUrlTransformed}
-                  alt={item.name}
-                  />
+                  {order.items.map((item) => (
+                    <img
+                      key={`image-${item.id}`}
+                      src={item.photo?.image?.publicUrlTransformed}
+                      alt={item.name}
+                    />
                   ))}
                 </div>
               </a>

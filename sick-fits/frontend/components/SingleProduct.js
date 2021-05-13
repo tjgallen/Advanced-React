@@ -47,7 +47,7 @@ export default function SingleProduct({ id }) {
   return(
     <ProductStyles>
       <Head>
-        <title>Ryan Allen Gallery | {Product.name}</title>
+        <title>Ryan Allen Designs | {Product.name}</title>
       </Head>
       <img 
         src={Product.photo.image.publicUrlTransformed}

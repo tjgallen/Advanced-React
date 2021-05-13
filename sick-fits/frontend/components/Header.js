@@ -40,7 +40,7 @@ export default function Header() {
     <HeaderStyles>
       <div className="bar">
         <Logo>
-          <Link href="/">Eatr Artwork</Link>
+          <Link href="/">Ryan Allen Designs</Link>
         </Logo>
         <Nav />
       </div>
